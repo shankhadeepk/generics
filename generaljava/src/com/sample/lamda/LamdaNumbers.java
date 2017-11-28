@@ -9,11 +9,12 @@ public class LamdaNumbers {
 	
 	public static void main(String[] args) {
 		LamdaNumbers l=new LamdaNumbers();
-		l.squareOfMaxodd(Arrays.asList(12,22,33,99)).forEach(x -> System.out.println(x));		
+		l.squareOfMaxodd(Arrays.asList(12,22,33,99,3,9)).forEach(x -> System.out.println(x));		
 	}
 	public List<Integer> squareOfMaxodd(List<Integer> numbers) {		
 		return numbers.stream()
 					  .filter(LamdaNumbers::isOdd)
+					  .filter(LamdaNumbers::isGreather3)
 					  .collect(Collectors.toList());
 		
 	}
