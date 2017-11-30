@@ -2,7 +2,9 @@ package com.sample.lamda;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LamdaNumbers {
@@ -27,6 +29,22 @@ public class LamdaNumbers {
 				map(x -> x*x).collect(Collectors.toList());
 		
 		arrList2.forEach(System.out::println);
+		
+
+	//Use filter with Map
+		Map<String,String> hostName=new HashMap<>();
+		hostName.put("1", "Shankhadeep");
+		hostName.put("2", "Shankhadeep-2");
+		hostName.put("3", "Shankhadeep-3");
+		hostName.put("4", "Shankhadeep-4");
+		hostName.put("5", "Shankhadeep-5");
+		
+		String result= hostName.entrySet().stream()
+						.filter(x -> x.getValue().contains("-") )
+						.map(x -> x.getValue())
+						.collect(Collectors.joining(","));
+		
+		System.out.println("Result of Map::"+result);
 		
 	}
 	public List<Integer> squareOfMaxodd(List<Integer> numbers) {		
